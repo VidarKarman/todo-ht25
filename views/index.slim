@@ -1,1 +1,12 @@
+form action="/new" method="post"
+ input type="text" name="new_task" placeholder="Namn"
+ input type="text" name="new_description" placeholder="Beskrivning"
+ input type="submit" value="Lägg till"
+
+
+- @todo.each do |task|
+    h2 = "#{task["name"]}"
+    p = "#{task["description"]}"
+    form action="/delete/#{task['id']}" method="post"
+        input type="submit" value="Ta Bort"
 
