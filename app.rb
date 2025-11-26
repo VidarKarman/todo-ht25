@@ -35,3 +35,8 @@ post '/delete/:id' do
   db.execute('DELETE FROM todos where id=?', [id])
   redirect('/')
 end
+post '/state/:id' do
+  id = params[:id]
+  db.execute('UPDATE todos SET state=? WHERE id=?', [1, id])
+  redirect('/')
+end
