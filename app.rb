@@ -40,3 +40,14 @@ post '/state/:id' do
   db.execute('UPDATE todos SET state=? WHERE id=?', [1, id])
   redirect('/')
 end
+
+get '/update/:id' do
+  id = params[:id].to_i
+  @todo = db.execute('SELECT * FROM todos where id=?', [id])
+  slim(:update)
+end
+
+post '/update/:id' do
+  db.execute('UPDATE todos SET name=?, description=? WHERE id=?', [params[:new_task], params[:new_description], params[:id]])
+  redirect('/')
+end
