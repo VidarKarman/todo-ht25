@@ -1,4 +1,4 @@
 form action="/update/#{@todo['id']}" method="post"
- input type="text" name="new_task" placeholder="#{@todo['name']}"
- input type="text" name="new_description" placeholder="#{@todo['description']}"
+ input type="text" name="new_task" value=@todo['name']
+ input type="text" name="new_description" value=@todo['description']
  input type="submit" value="Uppdatera"

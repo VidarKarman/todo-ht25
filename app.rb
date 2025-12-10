@@ -42,8 +42,8 @@ post '/state/:id' do
 end
 
 get '/update/:id' do
-  id = params[:id].to_i
-  @todo = db.execute('SELECT * FROM todos where id=?', [id])
+  @id = params[:id].to_i
+  @todo = db.execute('SELECT * FROM todos where id=?', [@id]).first
   slim(:update)
 end
 
